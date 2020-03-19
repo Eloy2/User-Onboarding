@@ -51,9 +51,9 @@ export default withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        name: Yup.string().required("please enter a name"),
-        password: Yup.string().min(5, "must be at least 5 characters long"),
-        email: Yup.string().email("please enter valid email"),
+        name: Yup.string().required("name is required").min(3, "must be at least 3 characters long"),
+        password: Yup.string().min(5, "must be at least 5 characters long").required("password is required"),
+        email: Yup.string().email("please enter valid email").required("email is required"),
         tos: Yup.boolean().oneOf([true], "must accept terms of service to continue")
     }),
     handleSubmit: (values, formikBag) => {
