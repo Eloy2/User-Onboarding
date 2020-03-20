@@ -6,37 +6,46 @@ import axios from 'axios';
 
 const Error = styled.span`
     color: red;
+    font-size: 1.3rem;
 `
 
+const DivForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
 
 const FormComponent = props => {
     console.log(props);
 
     return (
         <Form>
-            {/*////////////////NAME///////////////*/}
-            <Field name="name" placeholder="Name"/>
-            {props.touched.name && props.errors.name ? (
-                <Error className>{props.errors.name}</Error>
-            ) : null}
-            {/*////////////////PASSWORD///////////////*/}
-            <Field type="password" name="password" placeholder="Password"/>
-            {props.touched.password && props.errors.password ? (
-                <Error className>{props.errors.password}</Error>
-            ) : null}
-            {/*////////////////EMAIL///////////////*/}
-            <Field name="email" placeholder="Email"/>
-            {props.touched.email && props.errors.email ? (
-                <Error className>{props.errors.email}</Error>
-            ) : null}
-            {/*////////////////CHECKBOX///////////////*/}
-            <label htmlFor="tos">Read the TOS?</label>
-            <Field type="checkbox" name="tos"/>
-            {props.touched.tos && props.errors.tos ? (
-                <Error className>{props.errors.tos}</Error>
-            ) : null}
-            {/*////////////////SUBMIT///////////////*/}
-            <button type="submit">Create User</button>
+            <DivForm>
+                {/*////////////////NAME///////////////*/}
+                <Field name="name" placeholder="Name"/>
+                {props.touched.name && props.errors.name ? (
+                    <Error className>{props.errors.name}</Error>
+                ) : null}
+                {/*////////////////PASSWORD///////////////*/}
+                <Field type="password" name="password" placeholder="Password"/>
+                {props.touched.password && props.errors.password ? (
+                    <Error className>{props.errors.password}</Error>
+                ) : null}
+                {/*////////////////EMAIL///////////////*/}
+                <Field name="email" placeholder="Email"/>
+                {props.touched.email && props.errors.email ? (
+                    <Error className>{props.errors.email}</Error>
+                ) : null}
+                {/*////////////////CHECKBOX///////////////*/}
+                <label htmlFor="tos">Read the TOS?</label>
+                <Field type="checkbox" name="tos"/>
+                {props.touched.tos && props.errors.tos ? (
+                    <Error className>{props.errors.tos}</Error>
+                ) : null}
+                {/*////////////////SUBMIT///////////////*/}
+                <button type="submit">Create User</button>
+            </DivForm>
         </Form>
     );
 };
